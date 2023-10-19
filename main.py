@@ -1,32 +1,24 @@
-import json
 from fastapi import FastAPI
+from fastapi import APIRouter
+from app.routes.sys_db_stat_route import db_router
+import uvicorn
+
 from app.services.db_info import DBService
-from app.schemes.db_info_models import DBConnectModel
-from app.schemes.db_info_models import DBConnectResponceModel
-# from app.schemes.test import connection
+from app.schemes.sys_db_stat_schema import DBConnectModel
+from app.schemes.sys_db_stat_schema import DBConnectResponceModel
+
 
 app = FastAPI()
 
 
-@app.post('/databases-list')
-def index(data: DBConnectModel):
-    new_connection = DBService(data)
-    new_connection.connect()
-    return new_connection.get_db_list()
-    
+main_api_router = APIRouter()
+
+main_api_router.include_router(db_router, prefix='/db', tags=['db'])
+app.include_router(main_api_router)
 
 
-@app.get('/databases')
-def databases():
-    return {'None databases'}
-
-
-@app.post('/connect_database', response_model=DBConnectResponceModel)
-def connect_database(data: DBConnectModel) -> DBConnectResponceModel:
-    new_connection = DBService(data)
-    new_connection.connect()
-    return new_connection.check_connect()
-
+# if __name__ == '__main__':
+#     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
 
 
 

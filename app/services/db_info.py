@@ -1,5 +1,5 @@
 import psycopg2
-from app.schemes.db_info_models import DBConnectResponceModel
+from app.schemes.sys_db_stat_schema import DBConnectResponceModel
 
 
 class DBService:
@@ -37,15 +37,17 @@ class DBService:
         try:
             with self.conn.cursor() as cursor:
                 cursor.execute(f'SELECT * FROM pg_database')
-                return {
-                    'success': True,
-                    'result': cursor.fetchall()
-                }
+                return DBConnectResponceModel(
+                    message=f'Соединение установлено.'
+                            f'Список баз данных:: {cursor.fetchall()}',
+                    error=False
+                    )
+                
         except Exception as e:
-            return {
-                'success': False,
-                'error': {e}
-            }
+            return DBConnectResponceModel(
+                message=f'Ошибка получения списка БД',
+                error=True
+            )
         
     def check_connect(self):
         if self.conn:
