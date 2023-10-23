@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from app.services.db_info import DBService
-from app.schemes.sys_db_stat_schema import DBConnectModel,DBConnectResponceModel
+from app.schemes.db_info_models import DBConnectModel,DBConnectResponceModel
 
 
 db_router = APIRouter()

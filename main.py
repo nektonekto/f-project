@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi import APIRouter
-from app.routes.sys_db_stat_route import db_router
+from app.routes.db_info_route import db_router
 import uvicorn
 
 from app.services.db_info import DBService
-from app.schemes.sys_db_stat_schema import DBConnectModel
-from app.schemes.sys_db_stat_schema import DBConnectResponceModel
+from app.schemes.db_info_models import DBConnectModel
+from app.schemes.db_info_models import DBConnectResponceModel
 
 
 app = FastAPI()
