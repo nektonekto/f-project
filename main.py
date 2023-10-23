@@ -1,11 +1,13 @@
+import uvicorn
 from fastapi import FastAPI
 from fastapi import APIRouter
-from app.routes.db_info_route import db_router
-import uvicorn
+from app.routes.db_info_route import db_route
+from app.routes.test_route import test_route
+from app.routes.model_route import model_route
 
-from app.services.db_info import DBService
-from app.schemes.db_info_models import DBConnectModel
-from app.schemes.db_info_models import DBConnectResponceModel
+# from app.services.db_info import DBService
+# from app.schemes.db_info_model import DBConnectModel
+# from app.schemes.db_info_model import DBConnectResponceModel
 
 
 app = FastAPI()
@@ -13,10 +15,12 @@ app = FastAPI()
 
 main_api_router = APIRouter()
 
-main_api_router.include_router(db_router, prefix='/db', tags=['db'])
+main_api_router.include_router(db_route, prefix='/db', tags=['db'])
+main_api_router.include_router(test_route, prefix='/tst', tags=['tst'])
+main_api_router.include_router(model_route, prefix='/model', tags=['mdl'])
 app.include_router(main_api_router)
 
-
+#
 # if __name__ == '__main__':
 #     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
 

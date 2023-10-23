@@ -1,12 +1,12 @@
 from fastapi import APIRouter
 from app.services.db_info import DBService
-from app.schemes.db_info_models import DBConnectModel,DBConnectResponceModel
+from app.schemes.db_info_model import DBConnectModel,DBConnectResponceModel
 
 
-db_router = APIRouter()
+db_route = APIRouter()
 
 
-@db_router.post('/databases', response_model=DBConnectResponceModel)
+@db_route.post('/databases', response_model=DBConnectResponceModel)
 def get_databases(data: DBConnectModel) -> DBConnectResponceModel:
     """Return a list of all databases
 
@@ -20,7 +20,7 @@ def get_databases(data: DBConnectModel) -> DBConnectResponceModel:
     return new_connection.get_db_list()
     
 
-@db_router.post('/connect-database', response_model=DBConnectResponceModel)
+@db_route.post('/connect-database', response_model=DBConnectResponceModel)
 def connect_database(data: DBConnectModel) -> DBConnectResponceModel:
     """Connect ot the database
 
