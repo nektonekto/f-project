@@ -5,6 +5,7 @@ from sklearn import svm
 # TODO: Для SVC/SVR
 #       1) Добавить типизацию
 #       2) Переделать возвращаемую модель
+#       3) Доделать learn_model()
 
 
 class SVCModelService(AbstractModelServices):
@@ -28,7 +29,6 @@ class SVCModelService(AbstractModelServices):
                 random_state=params['random_state']
             )
 
-    # TODO: Доделать
     @staticmethod
     def learn_model(data, model):
         model.fit(data)
@@ -51,7 +51,6 @@ class SVRModelService(AbstractModelServices):
                 max_iter=params['max_iter']
             )
 
-    # TODO: Доделать
     @staticmethod
     def learn_model(model, data):
         model.fit(data)
