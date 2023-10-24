@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.services.db_info import DBService
+from app.services.db_info_service import DBService
 from app.schemes.db_info_model import DBConnectModel,DBConnectResponceModel
 
 

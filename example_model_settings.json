@@ -90,3 +90,39 @@
     "hpo_exists": false,
     "nas_exists": false
 }
+
+//SVM-model-test
+
+{
+    "settings": {
+    "type": "Classification",
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "gamma": 0.1,
+    "image": "classification",
+    "policy": "StepLR",
+    "solver": "Adam",
+    "amsgrad": false,
+    "input_c": 3,
+    "input_h": 32,
+    "input_w": 32,
+    "loss_fn": "CrossEntropy",
+    "num_gpu": 1,
+    "version": 1,
+    "backbone": "ResNet18",
+    "division": 0.9,
+    "max_epoch": 100,
+    "num_nodes": 1,
+    "step_size": 20,
+    "batch_size": 8,
+    "num_workers": 4,
+    "weight_decay": 0.0005,
+    "learning_rate": 0.001,
+    "pending_limit": 300,
+    "target_device": "cuda",
+    "save_frequency": 5,
+    "test_frequency": 5,
+    "checkpoint_name": ""
+}
+
+}

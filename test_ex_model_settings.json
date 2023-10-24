@@ -8,33 +8,75 @@
     "settings": {
         "type": "Classification",
         "beta1": 0.9,
-        "beta2": 0.999,
-        "gamma": 0.1,
-        "image": "classification",
-        "policy": "StepLR",
-        "solver": "Adam",
-        "amsgrad": false,
-        "input_c": 3,
-        "input_h": 32,
-        "input_w": 32,
-        "loss_fn": "CrossEntropy",
-        "num_gpu": 1,
-        "version": 1,
-        "backbone": "ResNet18",
-        "division": 0.9,
-        "max_epoch": 100,
-        "num_nodes": 1,
-        "step_size": 20,
-        "batch_size": 8,
-        "num_workers": 4,
-        "weight_decay": 0.0005,
-        "learning_rate": 0.001,
-        "pending_limit": 300,
-        "target_device": "cuda",
-        "save_frequency": 5,
-        "test_frequency": 5,
-        "checkpoint_name": ""
+        "beta2": 0.999
     },
+    "created": "2023-10-12T15:22:42.056067+03:00",
+    "updated": "2023-10-23T14:27:02.465043+03:00",
+    "started": null,
+    "finished": null,
+    "owner": "b2410b4f-4cef-46fc-aa34-b5e143648d17",
+    "owner_name": "def",
+    "status": "PENDING",
+    "progress": 100.0,
+    "division": 0.8,
+    "train_dataset": "a32bcd95-b8cc-4cef-9680-bd94fd70271f",
+    "train_dataset_name": "train",
+    "val_dataset": "a32bcd95-b8cc-4cef-9680-bd94fd70271f",
+    "val_dataset_name": "train",
+    "test_dataset": null,
+    "test_dataset_name": "",
+    "test_settings": {
+        "type": "Classification",
+        "beta1": 0.9,
+        "beta2": 0.999
+        },
+    "test_started": null,
+    "test_updated": null,
+    "test_finished": null,
+    "test_status": "NEW",
+    "test_progress": 0.0,
+    "test_accuracy": 0.0,
+    "checkpoints": [],
+    "hpo_exists": false,
+    "nas_exists": false
+}
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "uuid": "d09c39e5-214b-47ad-9720-7fa5de2f81a2",
+    "url": "http://10.10.10.5:8000/api/v1.9/tasks/d09c39e5-214b-47ad-9720-7fa5de2f81a2/execs/",
+    "name": "new-task",
+    "descr": "",
+    "project": "f5dacd67-2d53-4ca3-8a43-008b3ae43659",
+    "parent": null,
+    "settings": {
+  "C": 0,
+  "kernel": "string",
+  "degree": 0,
+  "gamma": "string",
+  "coef0": 0,
+  "shrinking": true,
+  "probability": true,
+  "tol": 0,
+  "cache_size": 0,
+  "class_weight": {},
+  "verbose": true,
+  "decision_function_shape": "string",
+  "break_ties": true,
+  "random_state": 0,
+  "epsilon": 0,
+  "max_iter": 0
+},
     "created": "2023-10-12T15:22:42.056067+03:00",
     "updated": "2023-10-23T14:27:02.465043+03:00",
     "started": null,
