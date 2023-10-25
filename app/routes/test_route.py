@@ -1,8 +1,8 @@
 import json
 from fastapi import APIRouter
-# from schemes.test_model import TestModel
+# from models.test_model import TestModel
 from typing import Dict, Any
-from app.schemes.test_model import TestModel
+from app.models.test_model import TestModel
 
 test_route = APIRouter()
 

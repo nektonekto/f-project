@@ -2,11 +2,7 @@ from pydantic import BaseModel
 from typing import List, Optional, Union, Dict
 
 
-# class SVModelInput(BaseModel):
-#     type: str
-#     beta1: float
-#     beta2: float
-class SVModelInput(BaseModel):
+class SVModelSettings(BaseModel):
     """Class for declaring SVM-model"""
     description: str
     C: float
@@ -27,7 +23,11 @@ class SVModelInput(BaseModel):
     max_iter: Union[int, None]
 
 
-class SVModelOut(BaseModel):
-    id: int
-    methodTraining: str
-    score: List
+# class SVModelOut(BaseModel):
+#     id: int
+#     methodTraining: str
+#     score: List
+
+
+
+

@@ -1,25 +1,21 @@
 from fastapi import APIRouter, Depends
-from typing import Dict, Any
 
-from pydantic import ValidationError
-from app.schemes.SVModel import SVModelInput, SVModelOut
+from app.models.ml_model import AbstractModelSettingsInput, AbstractModelSettingsOut
 
 model_route = APIRouter()
 
 
-@model_route.put('/model_settings/model_id={model_id}', response_model=SVModelOut)
-def get_model_settings(model_id: int, data: Dict[str, Any]) -> SVModelOut:
+@model_route.put('/model_settings/model_id={model_id}', response_model=AbstractModelSettingsOut)
+def get_model_settings(model_id: int, data: AbstractModelSettingsInput) -> AbstractModelSettingsOut:
     """Loading hyperparameters of the model.
 
     :param model_id: id model.
     :param data: json hyperparametes.
     :return: WIP...
     """
-    # settings = data.get('settings')
-    new_model = SVModelInput.model_validate(data.get('settings'))
-    print(new_model)
-    return SVModelOut(
+
+    return AbstractModelSettingsOut(
         id=model_id,
-        methodTraining=new_model.description,
+        model_settings=data.settings,
         score=[0.44]
     )

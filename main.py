@@ -5,10 +5,6 @@ from app.routes.db_info_route import db_route
 from app.routes.test_route import test_route
 from app.routes.model_route import model_route
 
-# from app.services.db_info import DBService
-# from app.schemes.db_info_model import DBConnectModel
-# from app.schemes.db_info_model import DBConnectResponceModel
-
 
 app = FastAPI()
 

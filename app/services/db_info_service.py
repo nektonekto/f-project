@@ -1,5 +1,5 @@
 import psycopg2
-from app.schemes.db_info_model import DBConnectResponceModel
+from app.models.db_info_model import DBConnectResponceModel
 
 
 class DBService:
