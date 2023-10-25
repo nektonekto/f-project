@@ -17,4 +17,9 @@ def get_model_settings(model_id: int, data: Dict[str, Any]) -> SVModelOut:
     """
     # settings = data.get('settings')
     new_model = SVModelInput.model_validate(data.get('settings'))
-    return svm_training(model_id, new_model)
+    print(new_model)
+    return SVModelOut(
+        id=model_id,
+        methodTraining=new_model.description,
+        score=[0.44]
+    )

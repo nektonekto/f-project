@@ -7,7 +7,7 @@ from onnxconverter_common import FloatTensorType
 import onnxruntime as rt
 
 
-class AbstractModelServices(ABC):
+class AbstractModelServices:
     def learn_model(self, data: Dict):
         self.model.fit(data)
 
