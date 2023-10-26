@@ -1,19 +1,29 @@
 from fastapi import APIRouter, Depends
 
 from app.models.ml_model import AbstractModelSettingsInput, AbstractModelSettingsOut
+from enum import Enum
 
 model_route = APIRouter()
 
 
+class ModelID(int, Enum):
+    svm = 1
+    ngbrs = 2
+
+
 @model_route.put('/model_settings/model_id={model_id}', response_model=AbstractModelSettingsOut)
-def get_model_settings(model_id: int, data: AbstractModelSettingsInput) -> AbstractModelSettingsOut:
-    """Loading hyperparameters of the model.
+def get_model_settings(model_id: ModelID, data: AbstractModelSettingsInput) -> AbstractModelSettingsOut:
+    """Transmitting model parameters for training
+    ____
+    Args:
 
-    :param model_id: id model.
-    :param data: json hyperparametes.
-    :return: WIP...
+    model_id: id model,
+    data: all parameters for the model in the current project
+    _______
+    Returns:
+
+    AbstractModelSettingsOut: the result of training the model
     """
-
     return AbstractModelSettingsOut(
         id=model_id,
         model_settings=data.settings,

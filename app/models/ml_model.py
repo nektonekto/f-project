@@ -11,7 +11,7 @@ class AbstractModelSettingsInput(BaseModel):
     descr: str
     project: str
     parent: Optional[str]
-    settings: SVModelInput
+    settings: SVModelSettings
     created: str
     updated: str
     started: Optional[str]
@@ -27,7 +27,7 @@ class AbstractModelSettingsInput(BaseModel):
     val_dataset_name: str
     test_dataset: Optional[str]
     test_dataset_name: str
-    test_settings: SVModelInput
+    test_settings: SVModelSettings
     test_started: Optional[str]
     test_updated: Optional[str]
     test_finished: Optional[str]
