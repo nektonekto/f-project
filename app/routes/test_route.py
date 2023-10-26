@@ -1,9 +1,9 @@
 import json
 from fastapi import APIRouter
 # from models.test_model import TestModel
-from typing import Dict, Any
+from typing import Dict, Any, Annotated
 from app.models.test_model import TestModel
-
+from fastapi import Query
 test_route = APIRouter()
 
 
@@ -19,3 +19,10 @@ def get_model_from_gns(data: Dict[str, Any]):
         return {'success': True,
                 'settings': data.get('settings')}
     else: return {'success': False}
+
+
+@test_route.post('/test-request')
+def test_request(param1: Annotated[str | None, Query(min_length=2, max_length=10)] = None):
+    return {
+        'message': f'Your {param1} done'
+    }

@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
+from typing import Annotated
 
-from app.models.ml_model import AbstractModelSettingsInput, AbstractModelSettingsOut
+from app.models.abs_model import AbstractModelSettingsInput, AbstractModelSettingsOut
 from enum import Enum
 
 model_route = APIRouter()
