@@ -17,6 +17,8 @@ import numpy as np
 #
 
 class SVCModel(AbstractModelServices):
+    """Class that returns the SVM Classifier model from sklearn"""
+
     def __init__(self, params):
         self.model = svm.SVC(
                 C=params['C'],
@@ -38,6 +40,8 @@ class SVCModel(AbstractModelServices):
 
 
 class SVRModel(AbstractModelServices):
+    """Class that returns the SVM Regressor model from sklearn"""
+
     def __init__(self, params):
         self.model = svm.SVR(
                 kernel=params['kernel'],

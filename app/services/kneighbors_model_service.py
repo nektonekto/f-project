@@ -4,6 +4,8 @@ from sklearn.neighbors import KNeighborsRegressor, KNeighborsClassifier
 
 
 class KNeighborsRegressorModel(AbstractModelServices):
+    """Class that returns the KNeighbors Regressor model from sklearn"""
+
     def __init__(self, params):
         self.model = KNeighborsRegressor(
                 n_neighbors=params['n_neighbors'],
@@ -18,6 +20,8 @@ class KNeighborsRegressorModel(AbstractModelServices):
 
 
 class KNeighborsClassifierModel(AbstractModelServices):
+    """Class that returns the KNeighbors Classifier model from sklearn"""
+
     def __init__(self, params):
         self.model = KNeighborsClassifier(
                 n_neighbors=params['n_neighbors'],

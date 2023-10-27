@@ -25,20 +25,20 @@ def get_model_from_gns(data: Dict[str, Any]):
 @test_route.post('/test-request/{check_id}')
 def test_request(
         check_id: Annotated[int,
-        Path(
-            title='id your buy',
-            ge=1,
-            gt=0,
-            le=1000
-        )],
+                            Path(
+                                title='id your buy',
+                                ge=1,
+                                gt=0,
+                                le=1000
+                            )],
         products: Annotated[List[str] | None,
-        Query(
-            alias='product-list',
-            title='Prod',
-            description='Your list of products',
-            min_length=0,
-            max_length=20
-        )] = None
+                            Query(
+                                alias='product-list',
+                                title='Prod',
+                                description='Your list of products',
+                                min_length=0,
+                                max_length=20
+                            )] = None
 ):
     return {
         'message': f'Your check {check_id} is ready. Products: {products} '
