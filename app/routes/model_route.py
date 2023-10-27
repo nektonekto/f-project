@@ -18,7 +18,7 @@ def get_model_settings(model_id: ModelID, data: AbstractModelSettingsInput) -> A
     ____
     Args:
 
-    model_id: id model,
+    model_id: id model \n
     data: all parameters for the model in the current project
     _______
     Returns:
