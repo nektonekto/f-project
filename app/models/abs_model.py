@@ -3,6 +3,11 @@ from typing import Optional, List, Union
 
 from app.models.svm_model import SVModelSettings
 from app.models.kneighbors_model import KNeighborsModelSettings
+from app.models.decision_tree_model import DecisionTreeClassifierModelSettings, DecisionTreeRegressorModelSettings
+from app.models.iforest_model import IsolationForestModelSettings
+from app.models.gaussiannb_model import GaussianNBModelSettings
+from app.models.dbscan_model import DBSCANModelSettings
+from app.models.kmeans_model import KMeansModelSettings
 
 
 class AbstractModelSettingsInput(BaseModel):
@@ -12,7 +17,9 @@ class AbstractModelSettingsInput(BaseModel):
     descr: str
     project: str
     parent: Optional[str]
-    settings: Union[SVModelSettings, KNeighborsModelSettings]
+    settings: (SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
+               DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
+               DBSCANModelSettings | KMeansModelSettings)
     created: str
     updated: str
     started: Optional[str]
@@ -28,7 +35,9 @@ class AbstractModelSettingsInput(BaseModel):
     val_dataset_name: str
     test_dataset: Optional[str]
     test_dataset_name: str
-    test_settings: Union[SVModelSettings, KNeighborsModelSettings]
+    test_settings: (SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
+                    DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
+                    DBSCANModelSettings | KMeansModelSettings)
     test_started: Optional[str]
     test_updated: Optional[str]
     test_finished: Optional[str]
@@ -42,7 +51,7 @@ class AbstractModelSettingsInput(BaseModel):
 
 class AbstractModelSettingsOut(BaseModel):
     id: int
-    model_settings: Union[SVModelSettings, KNeighborsModelSettings]
+    model_settings: (SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
+                     DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
+                     DBSCANModelSettings | KMeansModelSettings)
     score: List
-
-

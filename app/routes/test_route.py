@@ -4,13 +4,22 @@ from fastapi import APIRouter
 from typing import Dict, Any, Annotated, List
 from app.models.test_model import TestModel
 from fastapi import Query, Path
+from fastapi.responses import RedirectResponse
 
 test_route = APIRouter()
 
 
 # @test_route.post('/')
 # def test_r(data: TestModel):
-#     return test_func(data)    
+#     return test_func(data)
+
+
+
+
+@test_route.get("/teleport")
+def get_teleport() -> RedirectResponse:
+    return RedirectResponse(url="https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+
 
 @test_route.post('/model-from-gns')
 def get_model_from_gns(data: Dict[str, Any]):
@@ -26,7 +35,7 @@ def get_model_from_gns(data: Dict[str, Any]):
 def test_request(
         check_id: Annotated[int,
                             Path(
-                                title='id your buy',
+                                   title='id your buy',
                                 ge=1,
                                 gt=0,
                                 le=1000
@@ -40,6 +49,7 @@ def test_request(
                                 max_length=20
                             )] = None
 ):
+
     return {
-        'message': f'Your check {check_id} is ready. Products: {products} '
+        'message': f'Your check_id {check_id} is ready. Products: {products} '
     }
