@@ -2,8 +2,8 @@ import decimal
 import io
 import numpy.typing
 import numpy as np
-import pandas as pd
 from scipy.sparse import spmatrix
+import pandas as pd
 
 Decimal = decimal.Decimal
 PythonScalar = str | int | float | bool

@@ -25,6 +25,9 @@ def get_model_settings(model_id: ModelID, data: AbstractModelSettingsInput) -> A
 
     AbstractModelSettingsOut: the result of training the model
     """
+
+    input_model_settings = data.get('settings')
+    print(input_model_settings)
     return AbstractModelSettingsOut(
         id=model_id,
         model_settings=data.settings,
