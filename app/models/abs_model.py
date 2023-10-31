@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Optional, List, Union
 
 from app.models.svm_model import SVModelSettings
@@ -10,6 +10,10 @@ from app.models.dbscan_model import DBSCANModelSettings
 from app.models.kmeans_model import KMeansModelSettings
 
 
+class CustomBaseModel(BaseModel):
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+
 class AbstractModelSettingsInput(BaseModel):
     uuid: str
     url: str
@@ -17,9 +21,9 @@ class AbstractModelSettingsInput(BaseModel):
     descr: str
     project: str
     parent: Optional[str]
-    settings: (SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
-               DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
-               DBSCANModelSettings | KMeansModelSettings)
+    settings: Union[SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
+                    DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
+                    DBSCANModelSettings | KMeansModelSettings]
     created: str
     updated: str
     started: Optional[str]
@@ -35,9 +39,9 @@ class AbstractModelSettingsInput(BaseModel):
     val_dataset_name: str
     test_dataset: Optional[str]
     test_dataset_name: str
-    test_settings: (SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
-                    DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
-                    DBSCANModelSettings | KMeansModelSettings)
+    test_settings: Union[SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
+                        DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
+                        DBSCANModelSettings | KMeansModelSettings]
     test_started: Optional[str]
     test_updated: Optional[str]
     test_finished: Optional[str]

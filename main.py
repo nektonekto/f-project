@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi import APIRouter
+from pydantic import BaseModel, ConfigDict
 from app.routes.db_info_route import db_route
 from app.routes.test_route import test_route
 from app.routes.model_route import model_route
@@ -16,7 +17,8 @@ main_api_router.include_router(test_route, prefix='/tst', tags=['tst'])
 main_api_router.include_router(model_route, prefix='/model', tags=['mdl'])
 app.include_router(main_api_router)
 
-#
+
+
 # if __name__ == '__main__':
 #     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
 

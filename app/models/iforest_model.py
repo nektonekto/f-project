@@ -1,10 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Literal
 from numpy.random import RandomState
 
-
 class IsolationForestModelSettings(BaseModel):
     """Class for declaring the IForest-model"""
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     n_estimators: int = 100
     max_samples: float | Literal["auto", "auto"] | int = "auto"

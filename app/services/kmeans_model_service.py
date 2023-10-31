@@ -9,12 +9,12 @@ class KMeansModel(AbstractModelServices):
 
     def __init__(self, params):
         self.model = KMeans(
-            n_clusters=params['n_clusters'],
-            init=params['init'],
-            max_iter=params['max_iter'],
-            tol=params['tol'],
-            verbose=params['verbose'],
-            random_state=['random_state'],
-            copy_x=params['copy_x'],
-            algorithm=params['algorithm'],
+            n_clusters=params.n_clusters,
+            init=params.init,
+            max_iter=params.max_iter,
+            tol=params.tol,
+            verbose=params.verbose,
+            random_state=params.random_state,
+            copy_x=params.copy_x,
+            algorithm=params.algorithm
         )

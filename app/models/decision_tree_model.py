@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from numpy.random import RandomState
 from typing import Mapping, Literal, Sequence, Optional
 from app._types import Int, Float
@@ -8,6 +8,9 @@ from app._types import Int, Float
 class DecisionTreeBaseModelSettings(BaseModel):
     """Class for declaring the base DecisionTreeSettings model"""
 
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    description: str | None = None
     criterion: list
     splitter: Literal["best", "random", "best"] = "best"
     max_depth: Int | None = None

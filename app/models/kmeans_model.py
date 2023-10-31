@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Callable, Literal
 from app._types import Int, Float, MatrixLike
 from numpy.random import RandomState
@@ -6,6 +6,8 @@ from numpy.random import RandomState
 
 class KMeansModelSettings(BaseModel):
     """Class for declaring KMeans-model"""
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
 
     n_clusters: Int = 8
     init: MatrixLike | Callable | Literal["random", "k-means++", "k-means++"] = "k-means++"

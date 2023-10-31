@@ -21,3 +21,7 @@ class AbstractModelServices:
 
     def convert_model_to_onnx(self, input_shape):
         return convert_sklearn(self.model, initial_types=[("input", FloatTensorType(input_shape))])
+
+    def get_parameters(self):
+        return (f"Model settings: "
+                f"{self.model}")

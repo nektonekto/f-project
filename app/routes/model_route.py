@@ -12,7 +12,7 @@ class ModelID(int, Enum):
     ngbrs = 2
 
 
-@model_route.put('/model_settings/model_id={model_id}', response_model=AbstractModelSettingsOut)
+@model_route.post('/model_settings/model_id={model_id}', response_model=AbstractModelSettingsOut)
 def get_model_settings(model_id: ModelID, data: AbstractModelSettingsInput) -> AbstractModelSettingsOut:
     """Transmitting model parameters for training
     ____
@@ -25,9 +25,12 @@ def get_model_settings(model_id: ModelID, data: AbstractModelSettingsInput) -> A
 
     AbstractModelSettingsOut: the result of training the model
     """
+    from app.services.svm_model_service import SVCModel
+    model_settings = data.settings
+    print(model_settings.description)
+    svm_model = SVCModel(model_settings)
+    print(svm_model.get_parameters())
 
-    input_model_settings = data.get('settings')
-    print(input_model_settings)
     return AbstractModelSettingsOut(
         id=model_id,
         model_settings=data.settings,

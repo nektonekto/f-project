@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import Callable, Literal
 from app._types import Int, Float, MatrixLike
 from numpy.random import RandomState
@@ -6,6 +6,9 @@ from numpy.random import RandomState
 
 class DBSCANModelSettings(BaseModel):
     """Class for declaring DBSCAN-model"""
+
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
 
     eps: Float = 0.5
     min_samples: Int = 5
