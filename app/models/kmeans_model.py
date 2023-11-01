@@ -9,6 +9,7 @@ class KMeansModelSettings(BaseModel):
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
+    description: str = "KMeans-method"
     n_clusters: Int = 8
     init: MatrixLike | Callable | Literal["random", "k-means++", "k-means++"] = "k-means++"
     n_init: Literal["auto", "warn"] | int = "warn"

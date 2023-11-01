@@ -6,16 +6,43 @@ from app.models.test_model import TestModel
 from fastapi import Query, Path
 from fastapi.responses import RedirectResponse
 
+
 test_route = APIRouter()
 
 
 # @test_route.post('/')
 # def test_r(data: TestModel):
 #     return test_func(data)
+from pydantic import BaseModel
+class One(BaseModel):
+    value: int | str
 
 
+from app.models.svm_model import SVModelSettings
+from app.models.abs_model import AbstractModelSettingsInput
 
 
+@test_route.post("/test-uni")
+def check_union(model_data: One):
+    if One.model_validate(model_data):
+        return {
+            "success": True
+        }
+    else:
+        return {
+            "error": True
+        }
+
+@test_route.post("/union-test")
+def check_union(model_data: AbstractModelSettingsInput):
+    if SVModelSettings.model_validate(model_data.settings):
+        return {
+            "success": True
+        }
+    else:
+        return {
+            "error": True
+        }
 @test_route.get("/teleport")
 def get_teleport() -> RedirectResponse:
     return RedirectResponse(url="https://www.youtube.com/watch?v=dQw4w9WgXcQ")

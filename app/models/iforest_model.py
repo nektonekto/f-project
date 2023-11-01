@@ -6,6 +6,7 @@ class IsolationForestModelSettings(BaseModel):
     """Class for declaring the IForest-model"""
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
+    description: str = "iforest-method"
     n_estimators: int = 100
     max_samples: float | Literal["auto", "auto"] | int = "auto"
     contamination: float | str = "auto"

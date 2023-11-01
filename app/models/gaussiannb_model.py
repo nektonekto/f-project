@@ -7,6 +7,6 @@ class GaussianNBModelSettings(BaseModel):
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
-
-    priors: ArrayLike | None = None
+    description: str = "gaussian-method"
+    priors: ArrayLike | None
     var_smoothing: Float = 1e-9

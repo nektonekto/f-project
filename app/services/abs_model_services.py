@@ -8,6 +8,9 @@ import onnxruntime as rt
 
 
 class AbstractModelServices:
+    def __init__(self):
+        self.model = None
+
     def learn_model(self, data: Dict):
         self.model.fit(data)
 
@@ -23,5 +26,4 @@ class AbstractModelServices:
         return convert_sklearn(self.model, initial_types=[("input", FloatTensorType(input_shape))])
 
     def get_parameters(self):
-        return (f"Model settings: "
-                f"{self.model}")
+        return f"{self.model}"

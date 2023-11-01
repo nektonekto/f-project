@@ -10,18 +10,18 @@ class DecisionTreeBaseModelSettings(BaseModel):
 
     model_config = ConfigDict(arbitrary_types_allowed=True)
 
-    description: str | None = None
-    criterion: list
+    description: str = "DecisionTree-method"
+    criterion: str
     splitter: Literal["best", "random", "best"] = "best"
     max_depth: Int | None = None
     min_samples_split: float | int = 2
     min_samples_leaf: float | int = 1
     min_weight_fraction_leaf: Float = 0.0
-    max_features: float | None | Literal["auto", "sqrt", "log2"] | int = None
+    max_features: float | None | Literal["auto", "sqrt", "log2"] | int
     random_state: RandomState | None | Int = None
     max_leaf_nodes: Int | None = None
     min_impurity_decrease: Float = 0.0
-    class_weight: None | Mapping | str | Sequence[Mapping] = None
+    class_weight: None | Mapping | str | Sequence[Mapping]
     ccp_alpha: float = 0.0
 
 

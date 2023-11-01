@@ -4,6 +4,8 @@ from typing import List, Optional, Union, Dict
 
 class KNeighborsModelSettings(BaseModel):
     """Class for declaring KNeighborsClassifier model"""
+
+    description: str = "KN-method"
     n_neighbors: int
     weights: str
     algorithm: str

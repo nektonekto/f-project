@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ConfigDict
-from typing import Optional, List, Union
+from typing import Optional, List, Union, Any
 
 from app.models.svm_model import SVModelSettings
 from app.models.kneighbors_model import KNeighborsModelSettings
@@ -21,7 +21,7 @@ class AbstractModelSettingsInput(BaseModel):
     descr: str
     project: str
     parent: Optional[str]
-    settings: Union[SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
+    settings: Union[KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
                     DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
                     DBSCANModelSettings | KMeansModelSettings]
     created: str
@@ -40,8 +40,8 @@ class AbstractModelSettingsInput(BaseModel):
     test_dataset: Optional[str]
     test_dataset_name: str
     test_settings: Union[SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
-                        DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
-                        DBSCANModelSettings | KMeansModelSettings]
+                         DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
+                         DBSCANModelSettings | KMeansModelSettings]
     test_started: Optional[str]
     test_updated: Optional[str]
     test_finished: Optional[str]
@@ -53,9 +53,13 @@ class AbstractModelSettingsInput(BaseModel):
     nas_exists: bool
 
 
+
+from app.services.svm_model_service import SVCModel
 class AbstractModelSettingsOut(BaseModel):
     id: int
+    type_model: str
     model_settings: (SVModelSettings | KNeighborsModelSettings | DecisionTreeClassifierModelSettings |
                      DecisionTreeRegressorModelSettings | IsolationForestModelSettings | GaussianNBModelSettings |
                      DBSCANModelSettings | KMeansModelSettings)
-    score: List
+    score: list
+
