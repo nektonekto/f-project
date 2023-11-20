@@ -12,3 +12,11 @@ class DBConnectModel(BaseModel):
 class DBConnectResponceModel(BaseModel):
     message: str
     error: bool
+
+
+class ShowUser(BaseModel):
+    user_id: int
+    user_name: str
+    user_last_name: str
+    user_email: str
+    user_password: str

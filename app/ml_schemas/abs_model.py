@@ -1,13 +1,13 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional, List, Union, Any
 
-from app.models.svm_model import SVModelSettings
-from app.models.kneighbors_model import KNeighborsModelSettings
-from app.models.decision_tree_model import DecisionTreeClassifierModelSettings, DecisionTreeRegressorModelSettings
-from app.models.iforest_model import IsolationForestModelSettings
-from app.models.gaussiannb_model import GaussianNBModelSettings
-from app.models.dbscan_model import DBSCANModelSettings
-from app.models.kmeans_model import KMeansModelSettings
+from app.ml_schemas.svm_model import SVModelSettings
+from app.ml_schemas.kneighbors_model import KNeighborsModelSettings
+from app.ml_schemas.decision_tree_model import DecisionTreeClassifierModelSettings, DecisionTreeRegressorModelSettings
+from app.ml_schemas.iforest_model import IsolationForestModelSettings
+from app.ml_schemas.gaussiannb_model import GaussianNBModelSettings
+from app.ml_schemas.dbscan_model import DBSCANModelSettings
+from app.ml_schemas.kmeans_model import KMeansModelSettings
 
 
 class CustomBaseModel(BaseModel):

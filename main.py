@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi import APIRouter
 from pydantic import BaseModel, ConfigDict
-from app.routes.db_info_route import db_route
+from app.routes.db import db_route
 from app.routes.test_route import test_route
 from app.routes.model_route import model_route
 

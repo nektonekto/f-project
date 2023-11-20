@@ -1,8 +1,8 @@
 import json
 from fastapi import APIRouter
-# from models.test_model import TestModel
+# from ml_schemas.test_model import TestModel
 from typing import Dict, Any, Annotated, List
-from app.models.test_model import TestModel
+from app.ml_schemas.test_model import TestModel
 from fastapi import Query, Path
 from fastapi.responses import RedirectResponse
 
@@ -18,8 +18,8 @@ class One(BaseModel):
     value: int | str
 
 
-from app.models.svm_model import SVModelSettings
-from app.models.abs_model import AbstractModelSettingsInput
+from app.ml_schemas.svm_model import SVModelSettings
+from app.ml_schemas.abs_model import AbstractModelSettingsInput
 
 
 @test_route.post("/test-uni")

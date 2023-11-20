@@ -4,7 +4,7 @@ from typing import List, Optional, Union, Dict
 
 class SVModelSettings(BaseModel):
     """Class for declaring SVM-model"""
-    description: str = "SVC-method"
+    description: str = "SV-method"
     C: float
     kernel: str
     degree: int
